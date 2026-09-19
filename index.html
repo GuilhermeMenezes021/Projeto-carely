@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carely - Encontre cuidadores de confiança</title>
+    <meta name="description" content="Plataforma digital para contratação de cuidadores, babás e profissionais do lar.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div id="app">
+        <!-- Login Section -->
+        <section id="login-section" class="section active">
+            <div class="login-container">
+                <div class="login-logo">
+                    <svg width="60" height="60" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="20" cy="20" r="18" stroke="#2AB795" stroke-width="4"/>
+                        <path d="M10 20C10 14.4772 14.4772 10 20 10C25.5228 10 30 14.4772 30 20C30 25.5228 25.5228 30 20 30" stroke="#2AB795" stroke-width="4" stroke-linecap="round"/>
+                    </svg>
+                    <h1>CARELY</h1>
+                    <p>Cuidado que conecta.</p>
+                </div>
+                <div class="login-form">
+                    <div class="input-group">
+                        <label>E-mail</label>
+                        <input type="email" id="login-email" placeholder="seu@email.com" value="user@example.com">
+                    </div>
+                    <div class="input-group">
+                        <label>Senha</label>
+                        <input type="password" id="login-password" placeholder="••••••••" value="password123">
+                    </div>
+                    <button class="btn-primary" onclick="handleLogin()">Entrar</button>
+                    <p class="login-footer">Esqueceu a senha? <span>Recuperar</span></p>
+                    <div class="divider">ou</div>
+                    <button class="btn-google"><i class="fab fa-google"></i> Continuar com Google</button>
+                </div>
+                <p class="signup-text">Não tem uma conta? <span>Cadastre-se</span></p>
+            </div>
+        </section>
+
+        <!-- Header -->
+        <header id="main-header" class="main-header" style="display: none;">
+            <div class="logo">
+                <svg width="30" height="30" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="20" cy="20" r="18" stroke="white" stroke-width="4"/>
+                    <path d="M10 20C10 14.4772 14.4772 10 20 10C25.5228 10 30 14.4772 30 20C30 25.5228 25.5228 30 20 30" stroke="white" stroke-width="4" stroke-linecap="round"/>
+                </svg>
+                <span>CARELY</span>
+            </div>
+            <nav class="top-nav">
+                <button onclick="showSection('search')"><i class="fas fa-search"></i></button>
+                <button onclick="showSection('chat')"><i class="fas fa-comment-dots"></i></button>
+                <button onclick="showSection('profile')"><i class="fas fa-user-circle"></i></button>
+            </nav>
+        </header>
+
+        <main id="content">
+            <!-- Section: Search (Home) -->
+            <section id="search-section" class="section">
+                <div class="hero">
+                    <h1>Encontre cuidadores de confiança de forma rápida e segura</h1>
+                </div>
+                <div class="search-card">
+                    <div class="input-group">
+                        <label>Data</label>
+                        <input type="text" placeholder="08:00 - 13:00" value="12 de Maio, 2026">
+                    </div>
+                    <div class="input-group">
+                        <label>Endereço</label>
+                        <select>
+                            <option>Rua Augusta, São Paulo</option>
+                            <option>Av. Paulista, São Paulo</option>
+                        </select>
+                    </div>
+                    <button class="btn-primary" onclick="showResults()">Procurar cuidador(a)</button>
+                </div>
+            </section>
+
+            <!-- Section: Results -->
+            <section id="results-section" class="section">
+                <div class="section-header">
+                    <button onclick="showSection('search')" class="btn-back"><i class="fas fa-arrow-left"></i></button>
+                    <h2>1 profissional encontrada</h2>
+                </div>
+                <div class="caregiver-card" onclick="showCaregiver('ana')">
+                    <div class="card-top">
+                        <img src="ana.png" alt="Ana Souza" class="avatar">
+                        <div class="card-info">
+                            <h3>Ana Souza</h3>
+                            <p class="status">Disponível agora</p>
+                            <div class="rating">
+                                <span class="stars">★★★★☆</span>
+                                <span class="review-count">(12)</span>
+                            </div>
+                        </div>
+                        <i class="fas fa-chevron-right"></i>
+                    </div>
+                    <p class="description">Eu tenho experiência em cuidados para idosos com Alzheimer e mobilidade reduzida.</p>
+                    <div class="card-footer">
+                        <span class="price">R$ 22/hora</span>
+                        <button class="btn-secondary">Contratar</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section: Caregiver Detail -->
+            <section id="detail-section" class="section">
+                <div class="detail-header">
+                    <button onclick="showSection('results')" class="btn-back-white"><i class="fas fa-arrow-left"></i></button>
+                    <img src="ana.png" alt="Caregiver" class="header-avatar">
+                </div>
+                <div class="detail-content">
+                    <div class="name-status">
+                        <h2>Ana Souza</h2>
+                        <span class="badge">Verificada</span>
+                    </div>
+                    <div class="stats">
+                        <div class="stat">
+                            <strong>12</strong>
+                            <span>Serviços</span>
+                        </div>
+                        <div class="stat">
+                            <strong>4.8</strong>
+                            <span>Nota</span>
+                        </div>
+                        <div class="stat">
+                            <strong>3 anos</strong>
+                            <span>Exp.</span>
+                        </div>
+                    </div>
+                    <div class="tabs">
+                        <button class="tab active">Sobre</button>
+                        <button class="tab">Avaliações</button>
+                    </div>
+                    <div class="tab-content">
+                        <h3>Experiência</h3>
+                        <p>Trabalho com cuidado humanizado há mais de 3 anos. Especializada em primeiros socorros e acompanhamento terapêutico.</p>
+                        <h3>Habilidades</h3>
+                        <div class="tags">
+                            <span>Idosos</span>
+                            <span>Cozinha</span>
+                            <span>Medicação</span>
+                        </div>
+                    </div>
+                    <div class="fixed-footer">
+                        <button class="btn-primary" onclick="startChat('Ana Souza')">Conversar agora</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section: Chat -->
+            <section id="chat-section" class="section">
+                <div class="section-header">
+                    <button onclick="showSection('results')" class="btn-back"><i class="fas fa-arrow-left"></i></button>
+                    <h2 id="chat-name">Conversar com Ana</h2>
+                </div>
+                <div class="chat-container" id="chat-messages">
+                    <div class="message received">
+                        Olá! Como posso ajudar você hoje?
+                    </div>
+                    <div class="message sent">
+                        Olá Ana, preciso de ajuda com banho e monitoramento da minha mãe para amanhã.
+                    </div>
+                </div>
+                <div class="chat-input">
+                    <input type="text" id="chat-input-field" placeholder="Digite sua mensagem...">
+                    <button class="btn-send" onclick="sendMessage()"><i class="fas fa-paper-plane"></i></button>
+                </div>
+            </section>
+        </main>
+
+        <!-- Bottom Tab Bar -->
+        <footer id="bottom-nav" class="bottom-nav" style="display: none;">
+            <button onclick="showSection('search')" id="nav-search" class="nav-item active"><i class="fas fa-home"></i><span>Início</span></button>
+            <button onclick="showSection('chat')" id="nav-chat" class="nav-item"><i class="fas fa-comments"></i><span>Chat</span></button>
+            <button onclick="showSection('verification')" id="nav-verify" class="nav-item"><i class="fas fa-shield-alt"></i><span>Segurança</span></button>
+            <button onclick="showSection('profile')" id="nav-profile" class="nav-item"><i class="fas fa-user"></i><span>Perfil</span></button>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
